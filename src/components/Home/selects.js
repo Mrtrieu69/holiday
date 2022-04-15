@@ -1,0 +1,2 @@
+export const monthSelects = ["Month", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+export const typeSelects = ["Travel Type", "Europe", "Latest", "NY", "Popular", "Skiing", "Trendy", "Wines"]

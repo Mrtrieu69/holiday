@@ -1,13 +1,397 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+:root{
+    --primary-color: #3fd0d4;
+    --primary-hover-color: #3abdc1;
+    --title-color: #212121;
+    --text-color: #505050;
+    --footer-text-color: #a9a9a9;
+    --white-color: #fff;
+    --black-color: #212121;
+}
+
+html {
+    scroll-behavior: smooth !important;
+}
+
+body{
+    background-color: var(--white-color);
+}
+
+::selection {
+    color: white;
+    background: var(--primary-color);
+}
+
+.row--justify{
+    justify-content: space-between;
+}
+
+a{
+    text-decoration: none;
+    outline: none;
+}
+
+ul{
+    list-style: none;
+}
+
+input{
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: var(--white-color);
+}
+
+input::placeholder{
+    color: var(--white-color);
+}
+
+button{
+    border: none;
+    outline: none;
+}
+
+.app{
+    position: relative;
+    overflow: hidden;
+}
+
+.slick-prev:before, .slick-next:before{
+    display: none;
+}
+
+.slick-slider .slick-list{
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.slick-track{
+    display: flex;
+    align-items: center;
+}
+
+.slick-dots li button:before{
+    font-size: 12px;
+    color: var(--primary-color);
+}
+
+.slick-dots li.slick-active button:before{
+    color: var(--primary-color);
+}
+
+.scrollTop{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--primary-color);
+    cursor: pointer;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    background-color: var(--white-color);
+    font-weight: 900;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.scrollTop:hover{
+    color: var(--white-color);
+    background-color: var(--primary-color);
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.underline-custom{
+    position: relative;
+}
+
+.underline-custom::after{
+    position: absolute;
+    content: "";
+    left: 0;
+    bottom: -3px;
+    width: 100%;
+    transform: scaleX(0);
+    background-color: white;
+    height: 3px;
+    transform-origin: right;
+    transition: transform 0.3s ease-in-out;
+}
+
+.underline-custom:hover::after{
+    transform-origin: left;
+    transform: scaleX(1);
+}
+
+#China:checked + label span::after,
+#Latest:checked + label span::after,
+#NY:checked + label span::after,
+#Wines:checked + label span::after,
+#Europe:checked + label span::after,
+#Skiing:checked + label span::after,
+#Popular:checked + label span::after{
+    background-color: var(--primary-color);
+}
+
+.price-min,
+.price-max{
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    pointer-events: none;
+    -webkit-appearance: none;
+    background: none;
+}
+
+
+.price-min::-webkit-slider-thumb,
+.price-max::-webkit-slider-thumb{
+    pointer-events: all;
+    -webkit-appearance: none;
+    width: 24px;
+    height: 24px;
+    background-color: #f3f4f6;
+    cursor: all-scroll;
+}
+
+.linkTour{
+    @apply 
+    block 
+    relative 
+    w-full 
+    bg-110% 
+    hover:bg-115% 
+    duration-500 
+    ease-in-out 
+    cursor-pointer 
+    bg-center 
+    bg-no-repeat 
+    pt-3/5
+}
+
+.linkTour:hover > div{
+    display: flex;
+    animation: fade 0.5s ease;
+}
+
+.loader{
+    position: relative;
+    overflow: hidden;
+    @apply pt-[133%] rounded bg-gray-400
+}
+
+.loader::after{
+    position: absolute;
+    content: "";
+    display: block;
+    top: 0;
+    left: 0;
+    width: 100%;
+    bottom: 0;
+    background: linear-gradient(90deg, rgba(255,255,255,0.5), transparent);
+    animation: loading 1s ease-in-out infinite;
+}
+
+.mark{
+    transform: translateX(0);
+    transition: transform 0.3s ease-in-out;
+    @apply absolute top-1/4 right-100% w-[100px] h-10 bg-related cursor-pointer
+}
+
+.mark.active{
+    transform: translateX(60px);
+}
+
+.related{
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out 0.3s;
+    @apply fixed top-0 right-0 w-[280px] h-full shadow-xl bg-white z-[900]
+}
+
+.related.active{
+    transform: translateX(0);
+}
+
+.inputNumber{
+    display: flex;
+}
+
+.inputNumber .controls{
+    width: 40px;
+    height: 60px;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+}
+
+.inputNumber .controls button{
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: color 0.3s ease;
+    color: #505050;
+}
+
+.inputNumber .controls button:hover{
+    color: #3fd0d4;
+}
+
+.inputNumber input[type=number]::-webkit-inner-spin-button,
+.inputNumber input[type=number]::-webkit-outer-spin-button{
+    -webkit-appearance: none;
+}
+
+.inputNumber input[type=number]{
+    -moz-appearance: textfield;
+}
+
+
+.inputNumber input{
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+    border-bottom: 1px solid black;
+    align-items: center;
+    text-align: center;
+    user-select: none;
+}
+
+.btn-custom{
+    @apply p-3 min-w-[100px] text-center font-semibold text-white bg-primary mx-3 hover:bg-primary-dark duration-300 ease-in-out
+}
+
+button:disabled{
+    opacity: 0.5;
+}
+
+
+button:disabled:hover{
+    background-color: var(--primary-color);
+}
+
+.toast{
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    animation: toast 3s ease-in-out;
+    @apply relative  rounded-tl rounded-bl min-w-[220px] min-h-[70px] bg-white flex items-center p-3 mb-3
+}
+
+.toast.success{
+    border-left: 4px solid #1a9901;
+}
+
+.toast.info{
+    border-left: 4px solid #ffc102;
+}
+
+.toast.error{
+    border-left: 4px solid #ef2d23;
+}
+
+.toast .message{
+    transform-origin: left;
+    animation: message 2.4s linear 0.6s;
+    @apply absolute bottom-0 left-0 w-full h-1 
+}
+
+.toast .message.success{
+    background-color: #1a9901;
+}
+
+.toast .message.info{
+    background-color: #ffc102;
+}
+
+.toast .message.error{
+    background-color: #ef2d23;
+}
+
+/* animations */
+
+@keyframes fade {
+    0%{
+        opacity: 0;
+    }   
+    100%{
+        opacity: 1;
+    } 
+}
+
+@keyframes loading {
+    0%{
+        transform: translateX(-50%);
+    }
+    100%{
+        transform: translateX(100%);
+    }
+}
+
+@keyframes arrow-to-left{
+    0%{
+        transform: translateX(60px);
+    }
+    100%{
+        transform: translateX(0);
+    }
+}
+
+@keyframes toast{
+    0%{
+        transform: translateX(100%);
+    }
+    15%{
+        transform: translateX(-10%);
+    }
+    20%{
+        transform: translateX(0);
+    }
+
+    80%{
+        transform: translateX(0%);
+    }
+    85%{
+        transform: translateX(-10%);
+    }
+    100%{
+        transform: translateX(120%);
+    }
+}
+
+@keyframes message {
+    0%{
+        transform: scaleX(1);
+    }
+    80%{
+        transform: scaleX(0);
+    }
+    100%{
+        transform: scale(0);
+    }
+}
+
+@keyframes fade-up-title {
+    0%{
+        opacity: 0;
+        transform: translateY(50%);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

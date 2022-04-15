@@ -1,0 +1,741 @@
+header{
+    top: 0;
+    font-family: Poppins,sans-serif;
+    padding: 0 20px;
+    background-color: white;
+    position: fixed;
+    left: 0;
+    width: 100%;
+    z-index: 99;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+header.mobile{
+    background-color: var(--primary-color);
+}
+
+.logo{
+    width: 150px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo img{
+    width: 100%;
+    height: 100%;
+}
+
+.navbar{
+    display: flex;
+}
+
+.navLink{
+    position: relative;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navLink .link{
+    position: relative;
+    display: block;
+    padding: 0 32px;
+    color: var(--title-color);
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 25px;
+    transition: color 0.15s ease;
+}
+
+.subNav .subLink span,
+.navLink .link span{
+    position: relative;
+}
+
+.subNav .subLink span::after,
+.navLink .link span::after{
+    content: "";
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 114%;
+    height: 2px;
+    background-color: var(--primary-color);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+
+.subNav .subLink:hover,
+.navLink .link:hover{
+    color: var(--primary-color);
+}
+
+.subNav .subLink:hover span::after,
+.navLink .link:hover span::after{
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+
+.navLink .link.active{
+    color: var(--primary-color);
+}
+
+.catalog{
+    display: flex;
+    align-items: center;
+}
+
+.catalog .icon{
+    font-size: 24px;
+    color: var(--text-color);
+    cursor: pointer;
+    transition: color 0.15s ease;
+}
+
+.catalog .item:not(:last-child){
+    padding-right: 20px;
+}
+
+.catalog .item:first-child{
+    padding-left: 20px;
+}
+
+.catalog .item{
+    position: relative;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.catalog .iconBlock{
+    position: relative;
+}
+
+.catalog .iconBlock .iconQuantity{
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    border: 2px solid white;
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: 600;
+    animation: bound 0.5s ease;
+}
+
+.catalog .item.cart .info{
+    position: absolute;
+    right: 0;
+    top: 100%;
+    color: var(--text-color);
+    display: none;
+    font-size: 14px;
+    min-width: 300px;
+    background-color: white;
+    box-shadow: 0 0 4px rgb(231, 231, 231);
+}
+
+.catalog .item.cart .info .noProduct{
+    padding: 24px 20px;
+}
+
+.catalog .item.cart:hover .info{
+    display: block;
+}
+
+.catalog .item.cart .cartInfoList{
+    max-height: 420px;
+    overflow-y: auto;
+    padding: 12px 24px;
+    border-bottom: 1px solid rgb(211, 211, 211);
+}
+
+.catalog .item.cart .cartInfoItem{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+}
+
+.catalog .item.cart .cartInfoItem img{
+    width: 100px;
+    height: 70px;
+}
+
+.catalog .item.cart .cartItemDesc{
+    flex: 1;
+    margin: 0 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.catalog .item.cart .cartInfoItem .cartItemDelete,
+.catalog .item.cart .cartItemDesc .cartItemLink{
+    font-weight: 700;
+    transition: color 0.3s ease;
+    cursor: pointer;
+    color: var(--title-color);
+}
+
+.catalog .item.cart .cartInfoItem .cartItemDelete{
+    color: var(--text-color);
+}
+
+.catalog .item.cart .cartInfoItem .cartItemDelete:hover,
+.catalog .item.cart .cartItemDesc .cartItemLink:hover{
+    color: var(--primary-color);
+}
+
+.catalog .item.cart .cartItemDesc .cartItemPrice{
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.catalog .item.cart .cartInfoTotal{
+    padding: 24px;
+}
+
+.catalog .item.cart .cartInfoTotal .cartInfoTotalPrice{
+    font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+    color: var(--title-color);
+    margin-bottom: 24px;
+    font-size: 16px;
+}
+
+.catalog .item.cart .cartInfoTotal .cartInfoView{
+    padding: 20px 24px;
+    background-color: var(--primary-color);
+    font-size: 14px;
+    font-weight: 600;
+    color: white;
+    transition: background 0.3s ease;
+    width: 100%;
+}
+
+.catalog .item.cart .cartInfoTotal .cartInfoView:hover{
+    background-color: #35acb0;
+}
+
+.catalog .icon:hover{
+    color: var(--primary-color);
+}
+
+
+.blockSubNavbar{
+    overflow: hidden;
+    height: 0;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    box-shadow: 0 0 4px rgb(231, 231, 231);
+}
+
+.subNavbar{
+    background-color: white;
+    padding: 20px 0;
+}
+
+.subNav{
+    min-width: 220px;
+}
+
+.subNav .subLink{
+    display: block;
+    padding: 8px 32px;
+    color: var(--title-color);
+    transition: color 0.15s ease;
+}
+
+
+.subNav .subLink span{
+    position: relative;
+}
+
+
+.sideMenuLayout{
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    display: none;
+}
+
+.sideMenuLayout.active{
+    display: block;
+}
+
+.contentSideMenu.active{
+    transform: translateX(0);
+}
+
+.contentSideMenu{
+    z-index: 102;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 20px;
+    justify-content: center;
+    padding: 40px;
+    max-width: 458px;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    box-shadow: 0 0 4px rgb(231, 231, 231);
+}
+
+.contentSideMenu .close{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 24px;
+    color: var(--text-color);
+    cursor: pointer;
+}
+
+.contentSideMenu .map{
+    box-shadow: 6px 4px 40px rgb(194, 194, 194);
+}
+
+.contentSideMenu .logo{
+    width: 204px;
+    height: 65px;
+}
+
+.contentSideMenu .contact{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.contentSideMenu .contact .icon{
+    width: 50px;
+    height: 50px;
+    margin: 0 4px;
+    background-color: var(--primary-color);
+    transition: background 0.3s ease;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.contentSideMenu .contact .icon:hover{
+    background-color: #23a9af;
+
+}
+
+
+.contentSideMenu .contact .icon svg{
+    font-size: 20px;
+    color: white;
+}
+
+
+/* Mobile */
+.mobileLogo{
+    height: 70px;
+    display: flex;
+    align-items: center;
+}
+
+.mobileLogo img{
+    width: 112px;
+}
+
+.authenticationIcon,
+.mobileMenuIcon{
+    display: flex;
+    align-items: center;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.mobileMenuIcon label{
+    cursor: pointer;
+    height: 24px;
+}
+
+
+.mobileMenu{
+    position: absolute;
+    left: 0;
+    right: 0;
+    padding: 0 20px;
+    overflow-y: auto;
+    height: 0;
+    background-color: white;
+    transition: height 0.3s ease;
+}
+
+.mobileMenu::-webkit-scrollbar {
+    display: none;
+}
+
+
+.mobileMenu.active{
+    height: 250px;
+}
+
+.mobileMenu .mobileMenuList{
+    max-width: 644px;
+    margin: 0 auto;
+}
+
+
+.mobileMenu .mobileMenuLink{
+    padding: 9px 0;
+    border-bottom: 1px solid rgb(216, 216, 216);
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.mobileMenu .mobileMenuLink span{
+    transition: color 0.3s ease
+}
+
+.mobileMenu .mobileMenuLink:hover span{
+    color: var(--primary-color);
+}
+
+.mobileMenu .mobileMenuItemLink.active{
+    color: var(--primary-color);
+}
+
+.mobileMenu .mobileMenuItemLink{
+}
+
+
+.mobileMenu .mobileMenuLink svg{
+    transition: transform 0.3s ease;
+}
+
+.mobileMenu .mobileMenuLink.active svg{
+    transform: rotate(90deg);
+}
+
+.mobileMenu .subListBlock{
+    overflow: hidden;
+    transition: height 0.5s ease-in-out;
+    height: 0;
+}
+
+.mobileMenu .subList{
+    padding-left: 20px;
+}
+
+.mobileMenu .subItem{
+    padding: 9px 0;
+    border-bottom: 1px solid rgb(216, 216, 216);
+}
+
+.mobileMenu .subItem:hover .subLink{
+    color: var(--primary-color);
+}
+
+.mobileMenu .subLink{
+    transition: color 0.3s ease;
+    display: block;
+    color: var(--title-color);
+}
+
+.mobileMenu .subLink.active{
+    color: #ffbd30;
+    font-weight: 600;
+}
+
+
+/* Modal */
+.modal{
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    animation: fade 0.3s ease;
+    z-index: 100;
+}
+
+.modal.active{
+    display: flex;
+}
+
+.modalLayout{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;    
+}
+
+.modalContent{
+    width: 75%;
+    display: flex;
+    z-index: 102;
+}
+
+.modalContent .search{
+    flex: 1;
+    padding: 0 35px;
+    outline: none;
+    font-size: 16px;
+    border: none;
+    background-color: var(--white-color);
+    color: var(--text-color);
+
+}
+
+.modalContent .search::placeholder{
+    color: var(--text-color);
+}
+
+.modalContent .submit{
+    outline: none;
+    border: none;
+    background-color: var(--primary-color);
+    padding: 16px 75px 12px;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 54px;
+    color: var(--white-color);
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.modalContent .submit:hover{
+    background-color: #23a9af;
+}
+
+.modalContentMobile{
+    width: 45%;
+    z-index: 102;
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    font-size: 14px;
+    position: relative;
+}
+
+.modalContentMobile.mobile{
+    width: 90%;
+}
+
+.modalContentMobile .tablist{
+    display: flex;
+    font-weight: 600;
+}
+
+.modalContentMobile .tab{
+    cursor: pointer;
+    flex: 1;
+    padding: 20px 0;
+    text-align: center;
+    background-color: #3abdc1;
+}
+
+.modalContentMobile .tab.active{
+    background-color: var(--primary-color);
+}
+
+.modalContentMobile .subContent{
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
+
+.modalContentMobile .loginSocialNetworks{
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    display: flex;
+}
+
+.loginSocialNetworks .social{
+    flex: 1;
+}
+
+.loginSocialNetworks .social a{
+    cursor: pointer;
+    flex: 1;
+    padding: 20px 0;
+    text-align: center;
+    background-color: #3abdc1;
+    display: block;
+    color: var(--white-color);
+}
+
+#formRegister, #formLogin{
+    
+}
+
+.formGroup{
+    position: relative;
+    padding: 20px 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #6fdcdf;
+    margin-bottom: 8px;
+}
+
+.formGroup.error{
+    border: 1px solid red;
+}
+
+.formGroup svg{
+    flex: 1;
+}
+
+.formGroup .formInput{
+    width: 85%;
+    margin-left: 8px;
+    outline: none;
+    border: none;
+    background-color: #6fdcdf;
+    color: var(--white-color);
+    font-size: 16px;
+}
+
+.formGroup .formInput::placeholder{
+    color: white;
+}
+
+.formGroup .errorMessage{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    color: red;
+    text-align: center;
+}
+
+
+.formCheckbox{
+    display: none;
+}
+
+.remember{
+    margin-top: 20px;
+    display: flex;
+    cursor: pointer;
+}
+
+.checkmark{
+    position: relative;
+    width: 14px;
+    height: 14px;
+    background-color: white;
+    margin-right: 14px;
+    border-radius: 50%;
+}
+
+.checkmark::after{
+    content: "";
+    width: 6px;
+    height: 6px;
+    display: none;
+    position: absolute;
+    cursor: pointer;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--primary-color);
+    border-radius: 50%;
+}
+
+.formCheckbox:checked + .checkmark::after{
+    display: block;
+}
+
+.form{
+    position: relative;
+}
+
+.form a{
+    display: block;
+    margin-top: 20px;
+    color: #666;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.form a:hover {
+    color: var(--title-color);
+}
+
+
+.form .submit{
+    outline: none;
+    color: var(--title-color);
+    font-weight: 600;
+    padding: 14px 42px;
+    transition: all 0.3s ease;
+    background-color: white;
+    border: none;
+    margin-top: 20px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.form .submit:hover{
+    background-color: #3abdc1;
+    color: white;
+}
+
+.form .desc{
+    margin-top: 20px;
+}
+
+
+
+@keyframes fade {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+@keyframes bound {
+    0%{
+        transform: scale(0.8);
+    }
+    50%{
+        transform: scale(1.5);
+    }
+    100%{
+        transform: scale(1);
+    }
+}

@@ -1,0 +1,661 @@
+/* Slider */
+.wrapper{
+    position: relative;
+}
+
+.slider{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+
+.slide{
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    transition: opacity 1s ease;
+    background-size: 250%;
+    background-position: 20% 50%;
+    background-repeat: no-repeat;
+    animation: zoom 8s linear infinite alternate;
+}
+
+.slide.active{
+    opacity: 1;
+}
+
+.search{
+    width: 60%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    animation: fade-up 1s ease;
+}
+
+.search .header{
+    padding: 30px 20px;
+}
+
+.search .header .title{
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.search .formGroup{
+    position: relative;
+    padding: 20px;
+    border-top: 1px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search .formGroup svg{
+    flex: 1;
+    margin-right: 8px;
+}
+
+.search .formGroup .formInput{
+    width: 90%;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    color: var(--white-color);
+    font-size: 16px;
+}
+
+.search .formGroup .formInput::placeholder{
+    color: white;
+}
+
+
+
+.search .formGroup p{
+    width: 90%;
+    font-size: 17px;
+    cursor: text;
+}
+
+.search .formGroup .selects{
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: white;
+    padding: 2px 22px;
+    max-height: 170px;
+    overflow-y: auto;
+    display: none;
+    z-index: 2;
+}
+
+.search .formGroup .selects.active{
+    display: block;
+}
+
+.search .selects .select{
+    padding: 7px 0;
+    color: #999;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.search .selects .select.active{
+    color: var(--primary-color);
+}
+
+.search .selects .select:hover{
+    color: var(--primary-color);
+}
+
+.search .submit{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    font-weight: 600;
+    cursor: pointer;
+    color: black;
+    background-color: white;
+    outline: none;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.search .submit:hover{
+    background-color: #23a9af;
+    color: var(--white-color);
+}
+
+.btn{
+    position: absolute;
+    top: 50%;
+    width: 60px;
+    height: 60px;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--white-color);
+    border-radius: 50%;
+    cursor: pointer;
+    color: var(--title-color);
+    transition: all 0.3s ease;
+    display: none;
+}
+
+.btn:hover{
+    color: var(--primary-color);
+}
+
+.wrapper .btnNext{
+    right: 50px;
+    transform: translate(50%, -50%);
+}
+
+.wrapper .btnPrev{
+    left: 50px;
+    transform: translate(-50%, -50%);
+}
+
+.wrapper .btn:hover{
+    background-color: var(--primary-color);
+    color: var(--white-color);
+}
+
+/* Travel */
+
+.travel{
+    background-color: var(--white-color);
+    padding: 120px 80px;
+}
+
+.travel .desc{
+    text-align: center;
+    padding-bottom: 60px;
+}
+
+.travel .desc .subTitle{
+    font-family: Satisfy,cursive;
+    font-size: 33px;
+    line-height: 1.8em;
+    color: #3fd0d4;
+    font-weight: 400;
+}
+
+.travel .desc .title{
+    font-size: 50px;
+    line-height: 1.092307692307692em;
+    font-weight: 600;
+}
+
+.travel .desc .info{
+    color: var(--text-color);
+    margin-top: 20px;
+}
+
+.travel .tour{
+    border-radius: 50%;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    padding-top: 100%;
+    background-size: 100%;
+    background-position: center;
+    transition: background-size 1s ease;
+    margin-bottom: 40px;
+}
+
+.travel .tour:hover{
+    background-size: 105%;
+}
+
+.travel .tour .name{
+    font-family: Satisfy,cursive;
+    width: 100%;
+    text-align: center;
+    font-size: 48px;
+    font-weight: 100;
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.travel .tour .mask{
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0,0,0,0.3);
+}
+
+/* Tours */
+.tours{
+    position: relative;
+    padding: 0 8px;
+    background-color: var(--white-color);
+}
+
+.tours .tour{
+    padding-top: 66.6%;
+    background-size: 100%;
+    background-position: center;
+    margin-bottom: 8px;
+    transition: background-size 1s ease;
+    position: relative;
+}
+
+.tours .tour:hover{
+    background-size: 105%;
+}
+
+.tours .tour .desc{
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    color: white;
+    padding: 24px 40px;
+    font-weight: 600;
+}
+
+.tours .desc .info{
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+.tours .desc .rating{
+    display: flex;
+    column-gap: 8px;
+}
+
+.tours .about{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 80%;
+    padding: 40px;
+    color: var(--white-color);
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+.tours .about .title{
+    font-weight: 600;
+    font-size: 24px;
+}
+
+.tours .about .price{
+    font-weight: 600;
+}
+
+.tour .about .info{
+    text-align: justify;
+}
+
+.tour .about .readMore{
+    font-weight: 600;
+    color: var(--white-color);
+    position: relative;
+    max-width: 80px;
+}
+
+.tour .about .readMore::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    height: 3px;
+    width: 100%;
+    background-color: var(--white-color);
+    transition: transform 0.3s ease;
+    transform: scaleX(0);
+    transform-origin: right;
+}
+
+.tour .about .readMore:hover::after{
+    transform-origin: left;
+    transform: scaleX(1);
+}
+
+/* Team */
+.team{
+    padding: 162px 0;
+    width: 90%;
+    margin: 0 auto;
+    position: relative;
+}
+
+.team .blockMembers{
+    width: 90%;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+}
+
+
+.team .member{
+    width: 90%;
+    margin: 0 auto;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    row-gap: 40px;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+}
+
+.team .member .image{
+    width: 144px;
+    height: 144px;
+    border-radius: 50%;
+}
+
+.team .member .slogan{
+    text-align: center;
+    margin: 0 auto;
+    max-width: 90%;
+}
+
+.team .member .name{
+    font-family: Satisfy,cursive;
+    font-size: 24px;
+}
+
+.team .btnNext{
+    right: 0;
+    transform: translateY(-50%);
+    font-size: 50px;
+}
+
+.team .btnPrev{
+    left: 0;
+    transform: translateY(-50%);
+    font-size: 50px;
+}
+
+/* Countries */
+.countries{
+    width: 100%;
+    height: 60vh;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+}
+
+.countries .gallery{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    width: 80%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.countries .gallery .item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.countries .gallery .image{
+    border: 14px solid transparent;
+}
+
+.countries .gallery .link{
+    position: relative;
+    outline: none;
+}
+
+.countries .gallery .link .desc{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    font-size: 14px;
+    transform: translate(50%, 50%) scale(1);
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    background-color: var(--white-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 10;
+    padding: 10px;
+    transition: all 0.5s ease;
+    opacity: 1;
+}
+
+
+.countries .gallery .desc .name{
+    color: var(--title-color);
+    font-weight: bold;
+}
+
+.countries .gallery .desc span{
+    margin-top: 8px;
+    text-align: center;
+}
+
+.countries .btnNext{
+    font-size: 50px;
+    right: 0;
+    transform: translate(-100%, -50%);
+}
+
+.countries .btnPrev{
+    font-size: 50px;
+    left: 0;
+    transform: translate(100%, -50%);
+}
+
+/* Reviews */
+.reviews{
+    padding: 150px 0;
+}
+
+.reviews .title{
+    text-align: center;
+    font-size: 65px;
+    line-height: 1.092307692307692em;
+    font-weight: 600;
+    color: var(--title-color);
+}
+
+.reviews .desc{
+    text-align: center;
+    margin-top: 20px;
+    color: var(--text-color);
+}
+
+.reviews .sliderBlock{
+    background-color: #fcfcfc;
+    margin-top: 40px;
+}
+
+
+.reviews .card{
+    border-radius: 5px;
+    background-color: white;
+    margin: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 36px 10%;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+.reviews .card .info{
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 12px;
+}
+
+.reviews .info .name{
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.reviews .info .linkTour{
+    color: var(--title-color);
+    font-size: 24px;
+    font-weight: 900;
+    transition: color 0.3s ease;
+}
+
+.reviews .info .linkTour:hover{
+    color: var(--primary-color);
+}
+
+.reviews .info .rating{
+    color: var(--primary-color);
+    display: flex;
+    column-gap: 6px;
+}
+
+.reviews .info .comment{
+    color: var(--text-color);
+}
+
+
+@media (max-width: 1023px) {
+    .team .members{
+        overflow-y: scroll;
+        scroll-snap-type: x mandatory;
+    }
+    .team .members::-webkit-scrollbar{
+        display: none;
+    }
+    .team .member{
+        scroll-snap-align: start;
+        scroll-snap-stop: always;
+    }
+}
+
+@media (min-width: 768px) {
+    .search{
+        width: 300px;
+    }
+}
+
+@media (min-width: 1023px) {
+    /* Slider */
+    .search{
+        left: 30%;
+    }
+    .slide{
+        animation: zoom-full 8s linear infinite alternate;
+    }
+
+    /* Travel */
+    .travel{
+        padding: 120px 20px;
+    }
+    .travel .tour{
+        margin-bottom: 0;
+    }
+    .btn{
+        display: flex;
+    }
+    .travel .desc .title{
+        font-size: 65px;
+    }
+    
+    /* Tours */
+    .tours{
+        padding: 80px 10px;
+    }
+    .tours .tour{
+        margin-bottom: 10px;
+    }
+
+    /* Team */
+    .team{
+        width: 80%;
+    }
+
+    /* Countries */
+    .countries{
+        height: 100vh;
+    }
+
+    .countries .gallery .link .desc .name{
+        font-weight: 700;
+        font-size: 18px;
+    }
+
+    .countries .gallery .link .desc{
+        opacity: 0;
+        transform: translate(50%, 50%) scale(0);
+    }
+
+    .countries .gallery .link:hover .desc{
+        opacity: 1;
+        transform: translate(50%, 50%) scale(1);
+    }
+}
+
+@keyframes zoom-out {
+    0%{
+        opacity: 0;
+        transform: scale(0) translate(50%, 50%);
+    }
+    100%{
+        opacity: 1;
+        transform: scale(1) translate(50%, 50%);
+    }
+}
+
+@keyframes zoom-full {
+    0%{
+        background-size: 140%;
+        background-position: 20% 40%;
+    }
+    100%{
+        background-size: 160%;
+        background-position: 40% 40%;
+    }
+}
+
+@keyframes zoom {
+    0%{
+        background-size: 350%;
+        background-position: 30% 40%;
+    }
+    100%{
+        background-size: 380%;
+        background-position: 40% 40%;
+    }
+}
+
+@keyframes fade-up {
+    0%{
+        opacity: 0;
+        transform: translate(-50%,50%);
+    }
+    100%{
+        opacity: 1;
+        transform: translate(-50%,-50%);
+    }
+}
